@@ -44,7 +44,7 @@
             <div class="row">
                 <div class="col-md-6 work-sample">
                     <div class="card">
-                        <img src="assets/img/project1.png" class="card-img-top" alt="Project 1">
+                        <img src="assets/img/project1.png" class="card-img-top" alt="Project 1" data-toggle="modal" data-target="#imageModal" data-image="assets/img/project1.png">
                         <div class="card-body">
                             <h5 class="card-title">Ecommerce website</h5>
                             <p class="card-text">Front-end was developed using bootstrap.</p>
@@ -53,7 +53,7 @@
                 </div>
                 <div class="col-md-6 work-sample">
                     <div class="card">
-                        <img src="assets/img/project2.png" class="card-img-top" alt="Project 2">
+                        <img src="assets/img/project2.png" class="card-img-top" alt="Project 2" data-toggle="modal" data-target="#imageModal" data-image="assets/img/project2.png">
                         <div class="card-body">
                             <h5 class="card-title">Admin panel</h5>
                             <p class="card-text">Developed using Django.</p>
@@ -62,6 +62,7 @@
                 </div>
             </div>
         </section>
+        
         
     </div>
 
@@ -80,4 +81,16 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
+<script>
+    $(document).ready(function(){
+        $('#imageModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); // Button that triggered the modal
+            var imageSrc = button.data('image'); // Extract info from data-* attributes
+            var modal = $(this);
+            modal.find('#modalImage').attr('src', imageSrc); // Update the modal's content with the image
+        });
+    });
+</script>
+
 </html>
